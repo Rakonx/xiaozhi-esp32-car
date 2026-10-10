@@ -621,7 +621,7 @@ public:
 
     void OnIdle() {
         if ((esp_random() % 100) < 50) { // 5% chance for random movement
-            ESP_LOGI(TAG, "电机空闲: 随机动作被触发 (5%概率)");
+            ESP_LOGI(TAG, "电机空闲: 随机动作被触发 (5%%概率)");
             // Simple random movement using Application's motor control
             int random_action = (esp_random() % 4) + 1; // 1-4 for different directions
             HandleMotorActionForApplication(random_action, 60, 500, 0); // 60% speed, 500ms duration, low priority

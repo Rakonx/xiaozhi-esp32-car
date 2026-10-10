@@ -32,11 +32,12 @@
 #endif
 
 // 如果没有提供 BOARD 层的 MOTOR_* 定义，提供默认值以便本文件在不同环境下也能编译
+// Matched to this car's L298N wiring: 11=IN1, 12=IN2 (right), 13=IN3, 14=IN4 (left)
 #ifndef MOTOR_LF_GPIO
-#define MOTOR_LF_GPIO GPIO_NUM_12
+#define MOTOR_LF_GPIO GPIO_NUM_14
 #define MOTOR_LB_GPIO GPIO_NUM_13
-#define MOTOR_RF_GPIO GPIO_NUM_14
-#define MOTOR_RB_GPIO GPIO_NUM_21
+#define MOTOR_RF_GPIO GPIO_NUM_11
+#define MOTOR_RB_GPIO GPIO_NUM_12
 #endif
 
 // Test comment to trigger reanalysis

@@ -56,11 +56,12 @@
 // A MCP Test: Control a lamp
 #define LAMP_GPIO GPIO_NUM_18
 
-// Motor control pins for TC1508 module (N20 motors as wheels)
-// Temporarily changed MOTOR_RB_GPIO from GPIO_NUM_3 to GPIO_NUM_21 to avoid strapping pin issues
-#define MOTOR_LF_GPIO GPIO_NUM_12   // Left Forward
-#define MOTOR_LB_GPIO GPIO_NUM_13  // Left Backward
-#define MOTOR_RF_GPIO GPIO_NUM_14  // Right Forward
-#define MOTOR_RB_GPIO GPIO_NUM_21  // Right Backward (was GPIO_NUM_3)
+// Motor control pins for L298N module (N20 motors as wheels)
+// Wiring: GPIO11->IN1, GPIO12->IN2, GPIO13->IN3, GPIO14->IN4
+// Verified on this car: IN4=left fwd, IN3=left back, IN1=right fwd, IN2=right back
+#define MOTOR_LF_GPIO GPIO_NUM_14   // Left Forward   (IN4)
+#define MOTOR_LB_GPIO GPIO_NUM_13   // Left Backward  (IN3)
+#define MOTOR_RF_GPIO GPIO_NUM_11   // Right Forward  (IN1)
+#define MOTOR_RB_GPIO GPIO_NUM_12   // Right Backward (IN2)
 
 #endif // _BOARD_CONFIG_H_

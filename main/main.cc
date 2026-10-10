@@ -32,16 +32,10 @@
 
 extern "C" void app_main(void)
 {
-    // Initialize LEDC for PWM motor control before any other components
-    // Enable LEDC peripheral
-    periph_module_enable(PERIPH_LEDC_MODULE);
-
-    esp_err_t ledc_ret = ledc_fade_func_install(0);
-    if (ledc_ret != ESP_OK) {
-        ESP_LOGW(TAG, "Failed to install LEDC fade service: %s", esp_err_to_name(ledc_ret));
-    } else {
-        ESP_LOGI(TAG, "LEDC fade service initialized successfully");
-    }
+    // NOTE: Do NOT install the LEDC fade service here. On ESP-IDF v5.4 it must
+    // be installed after the LEDC timer/channels are configured, which is done
+    // in Application::InitMotorPwm(). Installing it before any LEDC object
+    // exists dereferences a null pointer and crashes/reboots.
 
     // Initialize NVS flash for WiFi configuration
     esp_err_t ret = nvs_flash_init();
